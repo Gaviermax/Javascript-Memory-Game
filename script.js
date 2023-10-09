@@ -1,10 +1,10 @@
 const cards = document.querySelectorAll(".cardItem");
 let card1, card2;
 let disableCards = false;
+let matchedcards =0;
 
 
 const cardClickHandler = (event) =>{
-    console.log(event.target);
     let cardClicked = event.target;
 
     if(cardClicked !== card1 && !disableCards){
@@ -27,11 +27,31 @@ cards.forEach(card=>{
 
 });
 
-function matchCards(img1 , img2){
-    console.log(img1)
-    console.log(img2)
+function shuffleCards(){
+    matchedcards = 0;
+    card1 = card2 = "";
+    let arr = [1,2,3,4,5,6,1,2,3,4,5,6]
+    arr.sort(() => Math.random() > 0.5 ? 1 : -1 )
 
+    cards.forEach((card,index) =>{
+        card.classList.remove("flipped");
+        card.addEventListener("click", cardClickHandler);
+        let imgTag =card.querySelector(".backView img");
+        imgTag.src = `Images/car${arr[index]}.png`;
+    
+    });
+}
+shuffleCards();
+
+function matchCards(img1 , img2){
     if(img1 === img2){
+        matchedcards++;
+        console.log(matchedcards)
+        if(matchedcards == 6){
+            setTimeout(() => {
+                return shuffleCards();
+            }, 1000);
+        }
         card1.removeEventListener("click", cardClickHandler);
         card2.removeEventListener("click", cardClickHandler);
         card1 = card2 ="";
