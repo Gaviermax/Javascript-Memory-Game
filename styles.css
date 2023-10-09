@@ -1,8 +1,30 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500&display=swap');
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
+.title{
+    font-family: 'Pixelify Sans', cursive;
+    font-weight: bold;
+    font-size: 60px;
+    letter-spacing: 10px;
+}
+.play-cta{
+    font-family: 'Pixelify Sans', cursive;
+    font-size: 60px;
+    cursor: pointer;
+    user-select: none;
+}
+.play-cta:hover{
+    background-color: white;
+    color: #2EC4B6;
+}
+
+
 .cardItem .backView img, .frontView img{
     max-width: 120px;
 }
@@ -23,6 +45,7 @@ body{
 .wrapper{
     width: 700px;
     height: 600px;
+    display: none;
 }
 .cardItem, .cardBox, .view{
     display: flex;
