@@ -3,6 +3,13 @@ let card1, card2;
 let disableCards = false;
 let matchedcards =0;
 
+document.querySelector(".play-cta").addEventListener("click", () =>{
+
+    document.querySelector(".wrapper").classList.remove("hide");
+    document.querySelector(".play-cta").style = "display: none";
+    document.querySelector(".title").style = "margin-top: 0";
+
+});
 
 const cardClickHandler = (event) =>{
     let cardClicked = event.target;
