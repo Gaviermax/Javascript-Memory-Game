@@ -53,18 +53,20 @@ body{
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     position: absolute;
-    transition: transform 0.25s linear;
+    transition: transform 0.35s linear;
     backface-visibility: hidden;
+    user-select: none;
+    pointer-events: none;
     
 }
 .backView{
     transform: rotateY(-180deg);
 }
-.cardItem:hover .backView{
+.cardItem.flipped .backView{
     
     transform: rotateY(0);
 }
-.cardItem:hover .frontView{
+.cardItem.flipped .frontView{
     
     transform: rotateY(180deg);
 }
